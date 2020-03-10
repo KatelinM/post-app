@@ -1,0 +1,1 @@
+export const addPostAC = (track) => ({ type: 'ADD_POST', track: track });
