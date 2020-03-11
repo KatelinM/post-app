@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import CommentBox from "./CommentBox";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         posts: state.comments,
     }

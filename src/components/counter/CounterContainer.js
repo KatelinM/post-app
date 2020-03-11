@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import Counter from "./Counter";
+import {decreaseRatingAC, increaseRatingAC} from "../redux/action-creators";
 
 let mapStateToProps = (state) => {
     return {
@@ -9,4 +10,15 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Counter);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        increaseRating: (id) => {
+            dispatch(increaseRatingAC(id));
+        },
+        decreaseRating: (id) => {
+            dispatch(decreaseRatingAC(id));
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

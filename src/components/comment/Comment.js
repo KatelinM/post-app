@@ -3,7 +3,7 @@ import s from './Comment.module.sass';
 import Counter from '../counter/CounterContainer';
 import icon from './unknown-person.png';
 
-const Comment = ({ img, nickname, time, rating, message }) => {
+const Comment = ({ id, img, nickname, time, rating, message, increaseRating, decreaseRating }) => {
     return (
         <div className={s.comment}>
             <div className={s.image}>
@@ -13,7 +13,7 @@ const Comment = ({ img, nickname, time, rating, message }) => {
                 <div className={s.header}>
                     <a href="#" className={s.nickname}>{ nickname }</a>
                     <div className="small-text">{ time }</div>
-                    <Counter rating={rating} />
+                    <Counter rating={rating} id={id}/>
                     <div className={s.answer}>Ответить</div>
                 </div>
                 <div className={s.message}>

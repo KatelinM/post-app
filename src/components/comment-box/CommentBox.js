@@ -33,21 +33,14 @@ const CommentBox = ({ posts }) => {
 
     let commentsElements =
         posts
-            .reverse()
-            .map(c => {
+            .map((commentList, index) => {
+                console.log(commentList)
                     return  (
-                        <div className="comment-group">
-                            <Comment
-                                key={c.id}
-                                img={c.author.img}
-                                nickname={c.author.nickname}
-                                time={timeSince(c.date)}
-                                rating={c.rating}
-                                message={c.message}/>
-
-                            {c.subComments.length && c.subComments.map(c => (
+                        <div className="comment-group" key={index}>
+                            {commentList.map(c => (
                                 <Comment
                                     key={c.id}
+                                    id={c.id}
                                     img={c.author.img}
                                     nickname={c.author.nickname}
                                     time={timeSince(c.date)}
