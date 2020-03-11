@@ -6,7 +6,7 @@ const initialState = {
        {
             id: '4',
             rating: '92',
-            date: '11.03.2020',
+            date: 1581466813000,
             author: {
                 nickname: 'Rrr',
                 img: '8',
@@ -14,9 +14,9 @@ const initialState = {
             message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             subComments: [
                 {
-                    id: '',
-                    rating: '',
-                    date: '',
+                    id: 1,
+                    rating: '7',
+                    date: 1581466818000,
                     author: {
                         nickname: '1',
                         img: '',
@@ -24,19 +24,19 @@ const initialState = {
                     message: '',
                 },
                 {
-                    id: '',
-                    rating: '',
-                    date: '',
+                    id: 2,
+                    rating: '-88',
+                    date: 1547943618000,
                     author: {
                         nickname: '1',
                         img: '',
                     },
-                    message: '',
+                    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                 },
                 {
-                    id: '',
+                    id: 3,
                     rating: -1,
-                    date: new Date(),
+                    date: 1532046018000,
                     author: {
                         nickname: '1',
                         img: '',
@@ -44,7 +44,49 @@ const initialState = {
                     message: '',
                 },
             ]
-       }
+       },
+       {
+            id: 4,
+            rating: '92',
+            date: 1581466813000,
+            author: {
+                nickname: 'Rrr',
+                img: '8',
+            },
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            subComments: [
+                {
+                    id: 5,
+                    rating: '7',
+                    date: 1581466818000,
+                    author: {
+                        nickname: '1',
+                        img: '',
+                    },
+                    message: '',
+                },
+                {
+                    id: 6,
+                    rating: '8',
+                    date: 1547943618000,
+                    author: {
+                        nickname: '1',
+                        img: '',
+                    },
+                    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed ',
+                },
+                {
+                    id: 7,
+                    rating: -1,
+                    date: 1532046018000,
+                    author: {
+                        nickname: '1',
+                        img: '',
+                    },
+                    message: '',
+                },
+            ]
+       },
     ]
 };
 

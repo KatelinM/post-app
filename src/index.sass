@@ -7,6 +7,8 @@
   --base-color: #212121
   --dark-grey: #2a2931
   --blue: #47a3ee
+  &::selection
+    background: var(--blue)
 body
   background: linear-gradient(90deg, #f4d6de, #e0eff4)
 .small-text
@@ -17,3 +19,4 @@ input:focus, button:focus
 a
   color: var(--blue)
   display: block
+
