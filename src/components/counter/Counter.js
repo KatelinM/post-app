@@ -6,7 +6,7 @@ const Counter = ({ id, rating, increaseRating, decreaseRating}) => {
   const onDecreaseButtonClick = () => decreaseRating(id);
 
   return (
-      <div>
+      <div className={s.counter}>
           <button onClick={ onIncreaseButtonClick }>+</button>
           <span>{rating}</span>
           <button onClick={ onDecreaseButtonClick }>-</button>

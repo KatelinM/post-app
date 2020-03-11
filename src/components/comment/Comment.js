@@ -1,4 +1,6 @@
 import React from 'react';
+import ShowMoreText from 'react-show-more-text';
+
 import s from './Comment.module.sass';
 import Counter from '../counter/CounterContainer';
 import icon from './unknown-person.png';
@@ -16,9 +18,13 @@ const Comment = ({ id, img, nickname, time, rating, message, increaseRating, dec
                     <Counter rating={rating} id={id}/>
                     <div className={s.answer}>Ответить</div>
                 </div>
-                <div className={s.message}>
+                <ShowMoreText
+                    lines={ rating <= -10 ? 1 : -1 }
+                    more='Открыть комментарий'
+                    less='Свернуть комментарий' >
                     { message }
-                </div>
+                </ShowMoreText>
+
             </div>
         </div>
     );

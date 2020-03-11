@@ -34,7 +34,6 @@ const CommentBox = ({ posts }) => {
     let commentsElements =
         posts
             .map((commentList, index) => {
-                console.log(commentList)
                     return  (
                         <div className="comment-group" key={index}>
                             {commentList.map(c => (
