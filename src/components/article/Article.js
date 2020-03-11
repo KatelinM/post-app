@@ -3,7 +3,7 @@ import s from './Article.module.sass';
 
 const Article = ({title, date, body}) => {
   return (
-      <div>
+      <div className={s.article}>
         <a href="#" className={s.title}>
           { title }
         </a>
@@ -15,6 +15,6 @@ const Article = ({title, date, body}) => {
         </div>
       </div>
   );
-}
+};
 
 export default Article;
