@@ -1,7 +1,7 @@
 import React from 'react';
 import ShowMoreText from 'react-show-more-text';
 
-import s from './Comment.sass';
+import './Comment.sass';
 import Counter from '../counter/CounterContainer';
 import icon from './unknown-person.png';
 

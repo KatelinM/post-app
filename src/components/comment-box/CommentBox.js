@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react';
-import s from './CommentBox.sass';
+import React, {useState} from 'react';
+import './CommentBox.sass';
 import Comment from "../comment/Comment";
 import timeSince from "../helpers/timeSince";
 
@@ -17,7 +17,7 @@ let CommentsGroup = ({comment}) => {
                 {hasChildComments && <>
                     <div className={`sub-comments ${!showMore ? 'hide' : null}`} >
                         { comment.comments.map(c => {
-                            return <Comment {...c} time={timeSince(c.date)} />
+                            return <Comment key={c.id} {...c} time={timeSince(c.date)} />
                         }) }
 
                         <button className ='button-more' onClick={ ()=>toggleShowMore(!showMore) }>
@@ -37,7 +37,7 @@ const CommentBox = ( {comments} ) => {
             <div className="title">Комментарии:</div>
 
             { comments.map(c => {
-                return <CommentsGroup comment={c}/>
+                return <CommentsGroup key={c.id} comment={c}/>
             }) }
 
         </div>

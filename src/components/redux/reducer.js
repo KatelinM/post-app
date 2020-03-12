@@ -1,4 +1,3 @@
-import React from "react";
 import {combineReducers} from "redux";
 
 const articleInit = {
@@ -88,14 +87,14 @@ const commentsInit = [
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 224,
+                id: 225,
                 rating: 114,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 224,
+                id: 226,
                 rating: 115,
                 date: 1581466813000,
                 author: 'Rrr',
