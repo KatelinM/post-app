@@ -1,23 +1,33 @@
 .comment-box
-  background: #fff
-  padding: 20px 40px
   margin-top: 10px
   border-radius: 5px
+  .group-comments, .single-comment
+    background: #fff
+    border-radius: 5px
+    padding: 20px 40px
+    margin-bottom: 5px
 
-  $elements: 15
+  $elements: 88
   @for $i from 0 to $elements
-    .comment-group > div:nth-child(#{$i + 1})
+    .sub-comments > .comment:nth-child(#{$i})
         margin-left: $i*50px
 
-
-
+  @for $i from 4 to $elements
+    .sub-comments.hide > .comment:nth-child(#{$i})
+         display: none
 
   .title
     font-size: 16px
-    margin-bottom: 20px
+    margin: 30px 5px 20px
     font-weight: bold
 
-$elements3: 3
-@for $i from 0 to $elements3
-  .comment-box > .comment-group > div:nth-child(#{$i + 5})
-    display: none
+  .button-more
+      width: 50%
+      max-width: 200px
+      display: block
+      margin: 0 auto
+      background: #5a5a5a
+      color: white
+      font-size: 14px
+      line-height: 35px
+
