@@ -7,17 +7,18 @@ let CommentsGroup = ({comment}) => {
     let [showMore, toggleShowMore] = useState(false)
 
     const hasChildComments = comment.comments && comment.comments.length;
+    let headPostid = comment.id
 
     return(
         <>
             <div className={ hasChildComments ? 'group-comments' : 'single-comment' }>
                 <div className="head-comment">
-                    <Comment {...comment} time={timeSince(comment.date)} />
+                    <Comment {...comment} time={timeSince(comment.date)} headPostid={headPostid}/>
                 </div>
                 {hasChildComments && <>
                     <div className={`sub-comments ${!showMore ? 'hide' : null}`} >
                         { comment.comments.map(c => {
-                            return <Comment key={c.id} {...c} time={timeSince(c.date)} />
+                            return <Comment key={c.id} {...c} time={timeSince(c.date)} headPostid={headPostid}/>
                         }) }
 
                         <button className ='button-more' onClick={ ()=>toggleShowMore(!showMore) }>

@@ -4,10 +4,9 @@ import ShowMoreText from 'react-show-more-text';
 import './Comment.sass';
 import Counter from '../counter/CounterContainer';
 import icon from './unknown-person.png';
-import Article from "../article/ArticleContainer";
 import AddPostForm from "../add-post-form/AddPostFormContainer";
 
-const Comment = ({ id, author, time, rating, message }) => {
+const Comment = ({ id, author, time, rating, message, headPostid }) => {
 
     let [showAddPostForm, toggleShowAddPostForm] = useState(false)
 
@@ -18,11 +17,11 @@ const Comment = ({ id, author, time, rating, message }) => {
             </div>
             <div>
                 <div className="header">
-                    <a href="#" className="author">{ author }</a>
+                    <span href="#" className="author link">{ author }</span>
                     <div className="small-text">{ time }</div>
                     <Counter rating={rating} id={id}/>
                     <div className="answer" onClick={() => toggleShowAddPostForm(!showAddPostForm)}>
-                        { showAddPostForm ? 'Скрыть' : 'Ответить' }
+                        { showAddPostForm ? 'Скрыть форму' : 'Ответить' }
                     </div>
                 </div>
                 <ShowMoreText
@@ -31,7 +30,7 @@ const Comment = ({ id, author, time, rating, message }) => {
                     less='Свернуть комментарий' >
                     { message }
                 </ShowMoreText>
-                {showAddPostForm && <AddPostForm id={id}/> }
+                {showAddPostForm && <AddPostForm headPostid={headPostid} author={author} /> }
             </div>
         </div>
     );

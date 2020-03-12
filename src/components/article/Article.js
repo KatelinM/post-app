@@ -4,9 +4,9 @@ import s from './Article.module.sass';
 const Article = ({title, date, body}) => {
   return (
       <div className={s.article}>
-        <a href="#" className={s.title}>
+        <div className={`${s.title} link`}>
           { title }
-        </a>
+        </div>
         <div className={`${s.date} small-text`}>
           <div>{ date }</div>
         </div>
