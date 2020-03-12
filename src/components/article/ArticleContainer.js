@@ -3,9 +3,9 @@ import Article from "./Article";
 
 let mapStateToProps = (state) => {
     return {
-        title: state.title,
-        date: state.date,
-        body: state.body,
+        title: state.article.title,
+        date: state.article.date,
+        body: state.article.body,
     }
 }
 

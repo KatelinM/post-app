@@ -1,22 +1,22 @@
 import React from 'react';
 import ShowMoreText from 'react-show-more-text';
 
-import s from './Comment.module.sass';
+import s from './Comment.sass';
 import Counter from '../counter/CounterContainer';
 import icon from './unknown-person.png';
 
-const Comment = ({ id, img, nickname, time, rating, message, increaseRating, decreaseRating }) => {
+const Comment = ({ id, author, time, rating, message }) => {
     return (
-        <div className={s.comment}>
-            <div className={s.image}>
+        <div className="comment">
+            <div className="image">
                 <img src={ icon } alt=""/>
             </div>
             <div>
-                <div className={s.header}>
-                    <a href="#" className={s.nickname}>{ nickname }</a>
+                <div className="header">
+                    <a href="#" className="author">{ author }</a>
                     <div className="small-text">{ time }</div>
                     <Counter rating={rating} id={id}/>
-                    <div className={s.answer}>Ответить</div>
+                    <div className="answer">Ответить</div>
                 </div>
                 <ShowMoreText
                     lines={ rating <= -10 ? 1 : -1 }

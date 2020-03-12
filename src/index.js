@@ -7,7 +7,7 @@ import './index.sass';
 import App from './components/app/App';
 import rootReducer from "./components/redux/reducer";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
     <Provider store={store}>

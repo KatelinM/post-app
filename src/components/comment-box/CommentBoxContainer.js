@@ -3,7 +3,7 @@ import CommentBox from "./CommentBox";
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.comments,
+        comments: state.comments,
     }
 };
 
