@@ -1,4 +1,4 @@
-export const addPostAC = (track) => ({ type: 'ADD_POST', track: track });
+export const addPostAC = (id, newPost) => ({ type: 'ADD_POST', id: id, newPost: newPost });
 
 export const increaseRatingAC = (id) => ({ type: 'INCREASE_RATING', id: id });
 

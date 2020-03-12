@@ -29,14 +29,14 @@ const commentsInit = [
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 224,
+                id: 3,
                 rating: 113,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 264,
+                id: 4,
                 rating: 114,
                 date: 1581466813000,
                 author: 'Rrr',
@@ -45,56 +45,56 @@ const commentsInit = [
         ]
     },
     {
-        id: 3,
+        id: 5,
         rating: 1,
         date: 1581466818000,
         author:  '1',
         message: '',
     },
     {
-        id: 4,
+        id: 6,
         rating: 2,
         date: 1547943618000,
         author: '1',
         message: '1lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
-        id: 5,
+        id: 7,
         rating: 3,
         date: 1532046018000,
         author: '1',
         message: '1lvl ',
         comments: [
             {
-                id: 1,
+                id: 8,
                 rating: 111,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: '2lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 2,
+                id: 9,
                 rating: 112,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 224,
+                id: 10,
                 rating: 113,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 225,
+                id: 11,
                 rating: 114,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: '2 lvl Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 226,
+                id: 12,
                 rating: 115,
                 date: 1581466813000,
                 author: 'Rrr',
@@ -120,31 +120,40 @@ const comments = ( state = commentsInit, action ) => {
             ];
 
         case 'INCREASE_RATING':
-            let getComment = (commentList) => {
-                return (
-                    commentList
-                        .map(c => {
-                                if (c.id !== action.id) {
-                                    if (c.comments && c.comments.length) {
-                                        getComment(c.comments)
-                                    }
-                                    else {
-                                        return  [
-                                            ...state,
-                                        ];
-                                    }
-                                } else {
-                                    return {
-                                        ...c,
-                                        rating: c.rating + 1
-                                    }
-                                }
-                            }
-                        )
-                )
-            };
 
-            return getComment(state);
+            return (
+                state
+                    .map(comment => {
+                            console.log('comment',comment)
+                            if (comment.id === action.id) {
+                                return {
+                                    ...comment,
+                                    rating: comment.rating + 1
+                                }
+                            } else {
+                                const subComments = comment.comments;
+                                if (subComments && subComments.length) {
+                                     let subComModified =  subComments.filter((subComment) => {
+                                        return subComment.id === action.id
+                                     });
+
+                                     return {
+                                        ...subComments,
+                                        ...subComModified
+                                    };
+                                }
+                                else {
+                                    return {
+                                        ...subComments,
+                                    };
+                                }
+                                return {
+                                    ...comment,
+                                };
+                            }
+                        }
+                    )
+            );
 
         case 'DECREASE_RATING':
             console.log(state)
