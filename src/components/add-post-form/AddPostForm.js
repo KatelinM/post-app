@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import s from './AddPostForm.module.sass';
 
-const AddPostForm = ({ addPost, author, headPostId }) => {
+const AddPostForm = (props) => {
+    let { addPost, headPostId } = props;
 
     let [name, setName] = useState('')
     let [email, setEmail] = useState('')
@@ -19,13 +20,12 @@ const AddPostForm = ({ addPost, author, headPostId }) => {
 
     const onAddPost = (event) => {
         event.preventDefault();
-        console.log(post)
         addPost(headPostId, post);
     };
 
     return (
-        <div className={s.form}>
-            <p className={s.label}>Добавить комментарий {headPostId}</p>
+        <div className={`${s.form} ${ !props.isVisible ? s.hide : null }`}>
+            <p className={s.label}>Добавить комментарий</p>
             <form onSubmit={ onAddPost }>
                 <div className={s.item}>
                     <label htmlFor="name">Имя</label>
@@ -49,7 +49,7 @@ const AddPostForm = ({ addPost, author, headPostId }) => {
                         name="comment"
                         id="" cols="30"
                         rows="10"
-                        defaultValue={author&&`${author}, `}
+                        required
                         onChange={ (event) => setMessage(event.currentTarget.value) } ></textarea>
                 </div>
                 <button className={s.button} type="submit">Добавить комментарий</button>

@@ -6,7 +6,7 @@ let mapStateToProps = (state) => {
     return {
         comments: state.comments,
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -14,6 +14,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(addPostAC(id, newPost));
         }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPostForm);

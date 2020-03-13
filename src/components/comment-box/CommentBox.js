@@ -4,8 +4,8 @@ import Comment from "../comment/Comment";
 import timeSince from "../helpers/timeSince";
 import AddPostForm from "../add-post-form/AddPostFormContainer";
 
-let CommentsGroup = ({comment}) => {
-    let [showMore, toggleShowMore] = useState(false)
+let CommentsGroup = ({comment, showAddPostForm}) => {
+    let [showMore, toggleShowMore] = useState(showAddPostForm)
 
     const hasChildComments = comment.comments && comment.comments.length;
     let headPostId = comment.id
@@ -16,17 +16,22 @@ let CommentsGroup = ({comment}) => {
                 <div className="head-comment">
                     <Comment {...comment} date={comment.date} headPostId={headPostId}/>
                 </div>
-                {!!hasChildComments && <>
-                    <div className={`sub-comments ${!showMore ? 'hide' : null}`} >
-                        { comment.comments.map(c => {
-                            return <Comment key={c.id} {...c} date={c.date} headPostId={headPostId}/>
-                        }) }
+                {
+                    !!hasChildComments &&
+                    <>
+                        <div className={`sub-comments ${!showMore ? 'hide' : null}`} >
+                            { comment.comments.map(c => {
+                                return <Comment key={c.id} {...c} date={c.date} headPostId={headPostId}/>
+                            }) }
 
-                        <button className ='button-more' onClick={ ()=>toggleShowMore(!showMore) }>
-                            { showMore ? 'Свернуть' : 'Показать еще' }
-                        </button>
-                    </div>
-                </>
+                            {
+                                comment.comments.length > 3 &&
+                                <button className='button-more' onClick={() => toggleShowMore(!showMore)}>
+                                    {showMore ? 'Свернуть' : 'Показать еще'}
+                                </button>
+                            }
+                        </div>
+                    </>
                 }
             </div>
         </>
@@ -42,7 +47,7 @@ const CommentBox = ( {comments} ) => {
                 return <CommentsGroup key={c.id} comment={c}/>
             }) }
 
-        <AddPostForm headPostId={null} author={null} />
+            <AddPostForm headPostId={null} author={null} isVisible={true}/>
         </div>
     );
 };
