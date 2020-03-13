@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import s from './AddPostForm.module.sass';
 
 const AddPostForm = (props) => {
-    let { addPost, headPostId } = props;
+    let { addPost, headPostId, toggleShowAddPostForm } = props;
 
     let [name, setName] = useState('')
     let [email, setEmail] = useState('')
@@ -21,6 +21,7 @@ const AddPostForm = (props) => {
     const onAddPost = (event) => {
         event.preventDefault();
         addPost(headPostId, post);
+        headPostId && toggleShowAddPostForm(false);
     };
 
     return (
@@ -47,7 +48,8 @@ const AddPostForm = (props) => {
                     <label htmlFor="comment" required>Комментарий</label>
                     <textarea
                         name="comment"
-                        id="" cols="30"
+                        id=""
+                        cols="30"
                         rows="10"
                         required
                         onChange={ (event) => setMessage(event.currentTarget.value) } ></textarea>

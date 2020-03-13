@@ -34,7 +34,7 @@ const Comment = ({ id, author, date, rating, message, headPostId }) => {
                             { message }
                         </ShowMoreText>
                     </div>
-                    <AddPostForm headPostId={headPostId} author={author} isVisible={showAddPostForm} />
+                    <AddPostForm headPostId={headPostId} author={author} isVisible={showAddPostForm} toggleShowAddPostForm={toggleShowAddPostForm}/>
                 </div>
             </div>
     </>
