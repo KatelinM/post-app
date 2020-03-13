@@ -5,8 +5,9 @@ import './Comment.sass';
 import Counter from '../counter/CounterContainer';
 import icon from './unknown-person.png';
 import AddPostForm from "../add-post-form/AddPostFormContainer";
+import timeSince from "../helpers/timeSince";
 
-const Comment = ({ id, author, time, rating, message, headPostid }) => {
+const Comment = ({ id, author, date, rating, message, headPostId }) => {
 
     let [showAddPostForm, toggleShowAddPostForm] = useState(false)
 
@@ -18,7 +19,7 @@ const Comment = ({ id, author, time, rating, message, headPostid }) => {
             <div>
                 <div className="header">
                     <span href="#" className="author link">{ author }</span>
-                    <div className="small-text">{ time }</div>
+                    <div className="small-text">{ timeSince(date) }</div>
                     <Counter rating={rating} id={id}/>
                     <div className="answer" onClick={() => toggleShowAddPostForm(!showAddPostForm)}>
                         { showAddPostForm ? 'Скрыть форму' : 'Ответить' }
@@ -30,7 +31,7 @@ const Comment = ({ id, author, time, rating, message, headPostid }) => {
                     less='Свернуть комментарий' >
                     { message }
                 </ShowMoreText>
-                {showAddPostForm && <AddPostForm headPostid={headPostid} author={author} /> }
+                {showAddPostForm && <AddPostForm headPostId={headPostId} author={author} /> }
             </div>
         </div>
     );

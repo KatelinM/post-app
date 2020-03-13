@@ -50,6 +50,7 @@ const commentsInit = [
         date: 1581466818000,
         author:  '1',
         message: '',
+        comments: [],
     },
     {
         id: 6,
@@ -57,6 +58,7 @@ const commentsInit = [
         date: 1547943618000,
         author: '1',
         message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        comments: [],
     },
     {
         id: 7,
@@ -113,72 +115,90 @@ const article = ( state = articleInit, action ) => {
 
 const comments = ( state = commentsInit, action ) => {
 
-    switch(action.type) {
+    switch(action.type)  {
         case 'ADD_POST':
-            return [
-                ...state,
-            ];
-
-        case 'INCREASE_RATING':
-
-            return (
-                state
-                    .map(comment => {
-                            console.log('comment',comment)
-                            if (comment.id === action.id) {
-                                return {
-                                    ...comment,
-                                    rating: comment.rating + 1
-                                }
-                            } else {
-                                const subComments = comment.comments;
-                                if (subComments && subComments.length) {
-                                     let subComModified =  subComments.filter((subComment) => {
-                                        return subComment.id === action.id
-                                     });
-
-                                     return {
-                                        ...subComments,
-                                        ...subComModified
-                                    };
-                                }
-                                else {
-                                    return {
-                                        ...subComments,
-                                    };
-                                }
-                                return {
-                                    ...comment,
-                                };
-                            }
+            if (action.id){
+                return state.map((c) => {
+                    if (c.id === action.id) {
+                        return {
+                            ...c,
+                            comments: [
+                                ...c.comments,
+                                action.newPost
+                            ]
                         }
-                    )
-            );
-
-        case 'DECREASE_RATING':
-            console.log(state)
-            return {
-                ...state,
-                comments: state.map((commentList) => {
-
-                    return commentList.map((c) => {
-
-                        if (c.id !== action.id) {
-                            return c
-                        } else {
-                            return {
-                                ...c,
-                                rating: c.rating - 1
-                            }
-                        }
-
-                    });
+                    } else {
+                        return c;
+                    }
                 })
-            };
+            } else {
+                return [
+                    ...state,
+                    action.newPost
+                ]
+            }
 
-        default:
-            return state;
-    }
+
+
+case 'INCREASE_RATING':
+
+return (
+    state
+        .map(comment => {
+                console.log('comment',comment)
+                if (comment.id === action.id) {
+                    return {
+                        ...comment,
+                        rating: comment.rating + 1
+                    }
+                } else {
+                    const subComments = comment.comments;
+                    if (subComments && subComments.length) {
+                        let subComModified =  subComments.filter((subComment) => {
+                            return subComment.id === action.id
+                        });
+
+                        return {
+                            ...subComments,
+                            ...subComModified
+                        };
+                    }
+                    else {
+                        return {
+                            ...subComments,
+                        };
+                    }
+                    return {
+                        ...comment,
+                    };
+                }
+            }
+        )
+);
+
+case 'DECREASE_RATING':
+return {
+    ...state,
+    comments: state.map((commentList) => {
+
+        return commentList.map((c) => {
+
+            if (c.id !== action.id) {
+                return c
+            } else {
+                return {
+                    ...c,
+                    rating: c.rating - 1
+                }
+            }
+
+        });
+    })
+};
+
+default:
+return state;
+}
 };
 
 export default combineReducers({

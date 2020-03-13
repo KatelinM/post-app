@@ -1,4 +1,4 @@
-const timeSince = function(date) {
+const timeSince = (date) => {
 
         const diffTime = Math.floor(new Date() - date);
         const diffHours = Math.floor(diffTime / (1000 * 60 * 60 ));
