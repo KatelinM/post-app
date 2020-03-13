@@ -15,28 +15,28 @@ const commentsInit = [
         message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         comments: [
             {
-                id: 1,
+                id: 21,
                 rating: 111,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 2,
+                id: 22,
                 rating: 112,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 3,
+                id: 23,
                 rating: 113,
                 date: 1581466813000,
                 author: 'Rrr',
                 message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             },
             {
-                id: 4,
+                id: 24,
                 rating: 114,
                 date: 1581466813000,
                 author: 'Rrr',
@@ -45,7 +45,7 @@ const commentsInit = [
         ]
     },
     {
-        id: 5,
+        id: 1,
         rating: 1,
         date: 1581466818000,
         author:  '1',
@@ -65,7 +65,7 @@ const comments = ( state = commentsInit, action ) => {
 
     switch(action.type)  {
         case 'ADD_POST':
-            if (action.id){
+            if (action.id !== null){
                 return state.map((c) => {
                     if (c.id === action.id) {
                         return {
@@ -86,67 +86,73 @@ const comments = ( state = commentsInit, action ) => {
                 ]
             }
 
+        case 'INCREASE_RATING':
+            return (
+                state
+                    .map(comment => {
+                            if (comment.id === action.id) {
+                                return {
+                                    ...comment,
+                                    rating: comment.rating + 1
+                                }
+                            } else {
+                                if (comment.comments.length) {
+                                    return {
+                                        ...comment,
+                                        comments: comment.comments.map(subComment => {
+                                            if (subComment.id === action.id) {
+                                                return {
+                                                    ...subComment,
+                                                    rating: subComment.rating + 1
+                                                }
+                                            } else {
+                                                return subComment
+                                            }
+                                        })
+                                    }
+                                } else {
+                                    return comment
+                                }
+                            }
+                        }
+                    )
+            );
 
+        case 'DECREASE_RATING':
+            return (
+                state
+                    .map(comment => {
+                            if (comment.id === action.id) {
+                                return {
+                                    ...comment,
+                                    rating: comment.rating - 1
+                                }
+                            } else {
+                                if (comment.comments.length) {
+                                    return {
+                                        ...comment,
+                                        comments: comment.comments.map(subComment => {
+                                            if (subComment.id === action.id) {
+                                                return {
+                                                    ...subComment,
+                                                    rating: subComment.rating - 1
+                                                }
+                                            } else {
+                                                return subComment
+                                            }
+                                        })
+                                    }
+                                } else {
+                                    return comment
+                                }
+                            }
+                        }
+                    )
+            );
 
-case 'INCREASE_RATING':
-
-return (
-    state
-        .map(comment => {
-                console.log('comment',comment)
-                if (comment.id === action.id) {
-                    return {
-                        ...comment,
-                        rating: comment.rating + 1
-                    }
-                } else {
-                    const subComments = comment.comments;
-                    if (subComments && subComments.length) {
-                        let subComModified =  subComments.filter((subComment) => {
-                            return subComment.id === action.id
-                        });
-
-                        return {
-                            ...subComments,
-                            ...subComModified
-                        };
-                    }
-                    else {
-                        return {
-                            ...subComments,
-                        };
-                    }
-                    return {
-                        ...comment,
-                    };
-                }
-            }
-        )
-);
-
-case 'DECREASE_RATING':
-return {
-    ...state,
-    comments: state.map((commentList) => {
-
-        return commentList.map((c) => {
-
-            if (c.id !== action.id) {
-                return c
-            } else {
-                return {
-                    ...c,
-                    rating: c.rating - 1
-                }
-            }
-
-        });
-    })
-};
-
-default:
-return state;
-}
+        default:
+            return state;
+    }
 };
 
 export default combineReducers({
