@@ -18,10 +18,9 @@
   .sub-comments > .comment
       margin-left: 350px
       border-top: 1px solid #e7e8ec
-  $elements: 88
-  @for $i from 4 to $elements
-    .sub-comments.hide > .comment:nth-child(#{$i})
-         display: none
+
+  .sub-comments.hide > .comment:nth-child(n+3)
+       display: none
 
   .button-more
       width: 50%
