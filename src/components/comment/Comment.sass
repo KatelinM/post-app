@@ -1,30 +1,36 @@
 .comment
   display: flex
-  margin-bottom: 20px
+  margin-top: 10px
+  padding-top: 10px
   .image
     margin-right: 25px
+
     img
       max-width: 100px
       border-radius: 50%
 
-  .header
-    display: flex
-    align-items: center
-    margin-bottom: 15px
-    .author
-      font-weight: bold
-    .time
+  &__content
+    flex: 2
 
-    .answer
-      color: var(--blue)
-      text-decoration: underline
-      flex: 1 0 auto
-      text-align: right
-      cursor: pointer
-      padding: 5px
-    div
-      margin-left: 20px
-  .message
-    min-height: 50px
+    .header
+      margin-bottom: 15px
+
+      .author
+        font-weight: bold
+
+      .answer
+        color: var(--blue)
+        text-decoration: underline
+        text-align: right
+        cursor: pointer
+        padding: 5px
+        float: right
+
+      div
+        margin-left: 20px
+        display: inline-block
+
+    .message
+      min-height: 50px
 
 

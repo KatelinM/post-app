@@ -14,14 +14,17 @@ const AddPostForm = (props) => {
         date: +new Date(),
         author: name,
         email: email,
-        message: message,
+        message: message + "\n",
         comments: []
     };
 
     const onAddPost = (event) => {
         event.preventDefault();
+        event.stopPropagation();
+        event.nativeEvent.stopImmediatePropagation();
+
+        headPostId !== null && toggleShowAddPostForm(false);
         addPost(headPostId, post);
-        headPostId && toggleShowAddPostForm(false);
     };
 
     return (

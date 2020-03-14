@@ -1,33 +1,35 @@
 .comment-box
-  margin-top: 10px
-  border-radius: 5px
+
+  .title
+    font-size: 16px
+    font-weight: bold
+    border-bottom: 1px solid #e7e8ec
+    padding: 20px 40px
+
   .group-comments, .single-comment
-    background: #fff
-    border-radius: 5px
+    border-bottom: 1px solid #e7e8ec
     padding: 20px 40px
     margin-bottom: 5px
 
-  $elements: 88
-  @for $i from 0 to $elements
+  @for $i from 1 to 8
     .sub-comments > .comment:nth-child(#{$i})
         margin-left: $i*50px
 
+  .sub-comments > .comment
+      margin-left: 350px
+      border-top: 1px solid #e7e8ec
+  $elements: 88
   @for $i from 4 to $elements
     .sub-comments.hide > .comment:nth-child(#{$i})
          display: none
 
-  .title
-    font-size: 16px
-    margin: 30px 5px 20px
-    font-weight: bold
-
   .button-more
       width: 50%
-      max-width: 200px
       display: block
-      margin: 0 auto
-      background: #5a5a5a
+      margin: 20px auto
+      background: #5181b8
       color: white
       font-size: 14px
       line-height: 35px
+
 

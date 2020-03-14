@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './CommentBox.sass';
 import Comment from "../comment/Comment";
-import timeSince from "../helpers/timeSince";
 import AddPostForm from "../add-post-form/AddPostFormContainer";
 
 let CommentsGroup = ({comment, showAddPostForm}) => {
@@ -27,7 +26,7 @@ let CommentsGroup = ({comment, showAddPostForm}) => {
                             {
                                 comment.comments.length > 3 &&
                                 <button className='button-more' onClick={() => toggleShowMore(!showMore)}>
-                                    {showMore ? 'Свернуть' : 'Показать еще'}
+                                    {showMore ? 'Свернуть' : 'Показать следующие комментарии'}
                                 </button>
                             }
                         </div>

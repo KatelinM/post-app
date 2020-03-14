@@ -1,11 +1,10 @@
 import React from 'react';
-import s from './App.module.sass';
 import Article from "../article/ArticleContainer";
 import CommentBox from "../comment-box/CommentBoxContainer";
 
 function App() {
   return (
-    <div className={s.container}>
+    <div className="container">
         <Article/>
         <CommentBox/>
     </div>

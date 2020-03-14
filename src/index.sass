@@ -5,23 +5,30 @@
   font-family: 'Varela Round', sans-serif
   color: rgb(91, 88, 107)
   --base-color: #212121
-  --dark-grey: #2a2931
+  --button-blue: #5181b8
   --blue: #47a3ee
   &::selection
     background: var(--blue)
+
 body
-  background: linear-gradient(90deg, #f4d6de, #e0eff4)
-.small-text
-  color: #b3adc7
-  font-size: 12px
+  background: #e0eff4
+  .container
+    width: 100%
+    max-width: 1200px
+    padding: 10px 0
+    margin: 20px auto
+    background: #fff
 input:focus, button:focus
     outline: none
+
 a
   color: var(--blue)
 
 button
     border: 0
     padding: 0
+    cursor: pointer
+
 input
     padding: 5px
     background-color: white
@@ -31,3 +38,7 @@ input
 .link
   color: var(--blue)
   text-decoration: underline
+
+.small-text
+  color: #b3adc7
+  font-size: 12px
