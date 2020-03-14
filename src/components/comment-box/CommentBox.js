@@ -7,7 +7,7 @@ let CommentsGroup = ({comment, showAddPostForm}) => {
     let [showMore, toggleShowMore] = useState(showAddPostForm)
 
     const hasChildComments = comment.comments && comment.comments.length;
-    let headPostId = comment.id
+    let headPostId = comment.id;
 
     return(
         <>

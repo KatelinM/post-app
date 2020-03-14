@@ -48,7 +48,7 @@ const AddPostForm = (props) => {
                         onChange={ (event) => setEmail(event.currentTarget.value) } />
                 </div>
                 <div className={s.item}>
-                    <label htmlFor="comment" required>Комментарий</label>
+                    <label htmlFor="comment">Комментарий</label>
                     <textarea
                         name="comment"
                         id=""

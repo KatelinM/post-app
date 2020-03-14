@@ -16,31 +16,32 @@ const commentsInit = [
         comments: [
             {
                 id: 21,
-                rating: 111,
-                date: 1581466813000,
-                author: 'Rrr',
-                message: '---\n\n**Дополнительные ресурсы:**  - National Geografic [nat-geo.ru/contest/zhivaya-voda/](https://nat-geo.ru/contest/zhivaya-voda/) \n - Or visit my [Github Account](https://throvn.github.io) \n\n---\n ',
-            },
-            {
-                id: 22,
-                rating: 112,
-                date: 1581466813000,
-                author: 'Rrr',
-                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            },
-            {
-                id: 23,
-                rating: 113,
-                date: 1581466813000,
-                author: 'Rrr',
-                message: '# Lorem ipsum dolor sit\n ### amet\n tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',            },
-            {
-                id: 24,
                 rating: 1,
                 date: 1581466813000,
                 author: 'Rrr',
-                message: '---\n**Advertisement:**Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                message: '---\n**Links:**\n- National Geografic [Nat geo](https://nat-geo.ru/contest/zhivaya-voda/)\n - Roca Home [Roca](http://www.ru.roca.com/) \n---\n ',
             },
+            {
+                id: 22,
+                rating: 2,
+                date: 1581466813000,
+                author: 'Rrr',
+                message: '### Heading 3\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n![A water](https://2l3jyssxy6-flywheel.netdna-ssl.com/wp-content/uploads/can-drinking-water-help-my-depression-and-anxiety.jpg) ![A water](https://scx1.b-cdn.net/csz/news/800/2019/1-water.jpg)',
+            },
+            {
+                id: 23,
+                rating: 3,
+                date: 1581466813000,
+                author: 'Rrr',
+                message: '(c) (C) (r) (R) (tm) (TM) (p) (P) +-\n__Bold text__ \n*Italic text* \n ~~Strikethrough~~\n ++Inserted text++\n==Marked text== ',
+            },
+            {
+                id: 24,
+                rating: 3,
+                date: 1581466813000,
+                author: 'Rrr',
+                message: '### Heading 3\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n![A water](https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/blogs/17511/images/gldPHZUSt2a5DxxrxWsg_water-harvester-1440x970.jpg) ![A water](https://cdn.hswstatic.com/gif/water-life-crop.jpg)',
+            }
         ]
     },
     {
