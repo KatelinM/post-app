@@ -4,9 +4,9 @@ import s from './AddPostForm.module.sass';
 const AddPostForm = (props) => {
     let { addPost, headPostId, toggleShowAddPostForm } = props;
 
-    let [name, setName] = useState('')
-    let [email, setEmail] = useState('')
-    let [message, setMessage] = useState('')
+    let [name, setName] = useState('');
+    let [email, setEmail] = useState('');
+    let [message, setMessage] = useState('');
 
     const post = {
         id: +new Date(),

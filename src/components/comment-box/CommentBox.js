@@ -4,7 +4,7 @@ import Comment from "../comment/Comment";
 import AddPostForm from "../add-post-form/AddPostFormContainer";
 
 let CommentsGroup = ({comment, showAddPostForm}) => {
-    let [showMore, toggleShowMore] = useState(showAddPostForm)
+    let [showMoreComments, toggleShowMoreComments] = useState(showAddPostForm)
 
     const hasChildComments = comment.comments && comment.comments.length;
     let headPostId = comment.id;
@@ -18,15 +18,15 @@ let CommentsGroup = ({comment, showAddPostForm}) => {
                 {
                     !!hasChildComments &&
                     <>
-                        <div className={`sub-comments ${!showMore ? 'hide' : null}`} >
+                        <div className={`sub-comments ${!showMoreComments ? 'hide' : null}`} >
                             { comment.comments.map(c => {
                                 return <Comment key={c.id} {...c} date={c.date} headPostId={headPostId}/>
                             }) }
 
                             {
                                 comment.comments.length > 3 &&
-                                <button className='button-more' onClick={() => toggleShowMore(!showMore)}>
-                                    {showMore ? 'Свернуть' : 'Показать следующие комментарии'}
+                                <button className='button-more' onClick={() => toggleShowMoreComments(!showMoreComments)}>
+                                    {showMoreComments ? 'Свернуть' : 'Показать следующие комментарии'}
                                 </button>
                             }
                         </div>
